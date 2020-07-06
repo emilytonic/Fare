@@ -31,7 +31,7 @@ namespace Fare.IntegrationTests
             var result = Enumerable.Repeat(0, repeatCount)
                 .Select(_ =>
                 {
-                    var generatedValue = sut.Generate();
+                    var generatedValue = sut.Generate(null);
                     this._testOutput.WriteLine($"Generated value: {generatedValue}");
                     return generatedValue;
                 })

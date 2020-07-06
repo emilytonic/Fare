@@ -73,10 +73,10 @@ namespace Fare
         /// Generates a random String that is guaranteed to match the regular expression passed to the constructor.
         /// </summary>
         /// <returns></returns>
-        public string Generate()
+        public string Generate(Random r)
         {
             var builder = new StringBuilder();
-            this.Generate(builder, automaton.Initial);
+            this.Generate(builder, automaton.Initial, r ?? this.random);
             return builder.ToString();
         }
 
@@ -93,7 +93,7 @@ namespace Fare
             return random.Next(maxForRandom) + min;
         }
 
-        private void Generate(StringBuilder builder, State state)
+        private void Generate(StringBuilder builder, State state, Random r)
         {
             var transitions = state.GetSortedTransitions(true);
             if (transitions.Count == 0)
@@ -107,7 +107,7 @@ namespace Fare
             }
 
             int nroptions = state.Accept ? transitions.Count : transitions.Count - 1;
-            int option = Xeger.GetRandomInt(0, nroptions, random);
+            int option = Xeger.GetRandomInt(0, nroptions, r);
             if (state.Accept && option == 0)
             {
                 // 0 is considered stop.
@@ -116,13 +116,13 @@ namespace Fare
 
             // Moving on to next transition.
             Transition transition = transitions[option - (state.Accept ? 1 : 0)];
-            this.AppendChoice(builder, transition);
-            Generate(builder, transition.To);
+            this.AppendChoice(builder, transition, r);
+            Generate(builder, transition.To, r);
         }
 
-        private void AppendChoice(StringBuilder builder, Transition transition)
+        private void AppendChoice(StringBuilder builder, Transition transition, Random r)
         {
-            var c = (char)Xeger.GetRandomInt(transition.Min, transition.Max, random);
+            var c = (char)Xeger.GetRandomInt(transition.Min, transition.Max, r);
             builder.Append(c);
         }
 
