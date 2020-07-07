@@ -43,18 +43,13 @@ namespace Fare
         {
             if (string.IsNullOrEmpty(regex))
             {
-                throw new ArgumentNullException("regex");
-            }
-
-            if (random == null)
-            {
-                throw new ArgumentNullException("random");
+                throw new ArgumentNullException(nameof(regex));
             }
 
 
-            regex = RemoveStartEndMarkers(regex);
+            regex = this.RemoveStartEndMarkers(regex);
             this.automaton = new RegExp(regex, AllExceptAnyString).ToAutomaton();
-            this.random = random;
+            this.random = random ?? throw new ArgumentNullException(nameof(random));
         }
 
         /// <summary>

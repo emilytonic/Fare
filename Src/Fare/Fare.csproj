@@ -14,13 +14,19 @@
     <CodeAnalysisRuleSet>Fare.ruleset</CodeAnalysisRuleSet>
 
     <!-- NuGet options -->
-    <PackageId>Fare</PackageId>
-    <Title>Fare - Finite Automata and Regular Expressions</Title>
-    <Description>.NET port of dk.brics.automaton - Project Fare is an effort to bring a DFA/NFA (finite-state automata) implementation from Java to .NET. There are quite a few implementations available in other languages today. This project aims to fill the gap in .NET.</Description>
+<!--    <PackageId>FareConsistent</PackageId>-->
+<!--    <Title>Fare - Finite Automata and Regular Expressions - Consistent</Title>-->
+<!--    <Description>.NET port of dk.brics.automaton - Project Fare is an effort to bring a DFA/NFA (finite-state automata) implementation from Java to .NET. There are quite a few implementations available in other languages today. This project aims to fill the gap in .NET.</Description>-->
 
-    <Authors>Nikos Baxevanis</Authors>
-    <PackageProjectUrl>https://github.com/moodmosaic/Fare</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/moodmosaic/Fare/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageTags>Regex Test NFA DFA Automaton</PackageTags>
+<!--    <Authors>Nikos Baxevanis</Authors>-->
+<!--    <PackageProjectUrl>https://github.com/moodmosaic/Fare</PackageProjectUrl>-->
+<!--    <PackageLicenseUrl>https://github.com/moodmosaic/Fare/blob/master/LICENSE</PackageLicenseUrl>-->
+<!--    <PackageTags>Regex Test NFA DFA Automaton</PackageTags>-->
+   
+    <PackageId>FareConsistent</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Nikos Baxevanis with Tonic Changes</Authors>
+    <PackageDescription>Fare with a consistency change</PackageDescription>
+    <RepositoryUrl>https://github.com/emilytonic/Fare</RepositoryUrl>
   </PropertyGroup>
 </Project>
